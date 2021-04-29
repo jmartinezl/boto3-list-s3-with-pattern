@@ -81,13 +81,10 @@ def lambda_handler(event, context):
             _value = event['file_name']
             result = _find_s3_record(_value)
 
-        elif event.get('employee_number'):
-            _value = event['employee_number']
+        elif event.get('search_term'):
+            _value = event['search_term']
             result = _get_by_scan(_value)
-
-        elif event.get('year'):
-            _value = event['year']
-            result = _get_by_scan(_value)
+ 
         else:
             return create_response("ERROR", "MISSING_PARAMETERS", "Missing parameters.")
 
